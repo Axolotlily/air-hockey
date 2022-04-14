@@ -243,7 +243,7 @@ function pushTrainSample(game, directions) {
         puck.velocity.y * vScale
     ];
     game.trainData.push([inputs, directions]);
-    while (game.trainData.length > 1500000) {
+    while (game.trainData.length > 1000000) {
         // Only remember a max of 1M samples at a time
         var index = (Math.random() * game.trainData.length) | 0;
         game.trainData.splice(index, 1);
