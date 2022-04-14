@@ -191,19 +191,19 @@ function updatePaddleA(game) {
     var force = {x: 0, y: 0};
     var paddleA = game.paddleA;
     var directions = [0, 0, 0, 0];
-    if (game.keyStates[38]) {
+    if (game.keyStates[87]) {
         force.y -= f;
         directions[0] = 1;
     }
-    if (game.keyStates[39]) {
+    if (game.keyStates[68]) {
         force.x += f;
         directions[1] = 1;
     }
-    if (game.keyStates[40]) {
+    if (game.keyStates[83]) {
         force.y += f;
         directions[2] = 1;
     }
-    if (game.keyStates[37]) {
+    if (game.keyStates[65]) {
         force.x -= f;
         directions[3] = 1;
     }
@@ -243,7 +243,7 @@ function pushTrainSample(game, directions) {
         puck.velocity.y * vScale
     ];
     game.trainData.push([inputs, directions]);
-    while (game.trainData.length > 1000000) {
+    while (game.trainData.length > 1500000) {
         // Only remember a max of 1M samples at a time
         var index = (Math.random() * game.trainData.length) | 0;
         game.trainData.splice(index, 1);
